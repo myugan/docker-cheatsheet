@@ -200,7 +200,7 @@ ADD https://example.com/compress.tar.gz /opt/
 | *docker run image*      | Run the container image with any options like *-it* for interactive mode  |
 | *docker exec image*   | Run a command inside the running container    |
 | *docker logs image*   | To display the logs of the image  |
-| *docker stop <CONTAINER_ID> | Stop one or more running containers |
+| *docker stop <CONTAINER_ID>* | Stop one or more running containers |
 | *docker kill image*   | Kill one or more running containers   |
 | *docker pause image* | Pause all process on the spesific containers |
 | *docker unpause image* | Unpause all process on the spesific containers   |
