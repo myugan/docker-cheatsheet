@@ -208,7 +208,7 @@ ADD https://example.com/compress.tar.gz /opt/
 | *docker stop $(docker ps -aq)*    | Stop all running containers   |
 | *docker rmi $(docker images --filter "dangling=true" -q --no-trunc) --force*  | Remove all untagged images |
 | *docker rm $(docker ps -aqf status=exited)*  | Remove an exited containers    |
-| *docker rm -f <CONTAINER_ID> | Remove running container |
+| *docker rm -f <CONTAINER_ID>* | Remove running container |
 | *docker rm $(docker ps -aq)*  | Remove all images |
 
 
