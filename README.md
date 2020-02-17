@@ -11,7 +11,7 @@ This cheatsheet included Dockerfile command to build Docker image and ny command
     - [RUN](#run)
     - [COPY](#copy)
     - [ADD](#add)
-- [Docker Command](#docker-command)
+- [Useful Commands](#docker-useful-commands)
 
 ## Dockerfile
 -------------
@@ -29,7 +29,7 @@ To get the base image you can see https://hub.docker.com/explore/, just click wh
 
 ### LABEL
 
-To adds metadata into your Docker image, like _maintainer_ and _description_ to help organize images by project. 
+To adds metadata into your Docker image, like _maintainer_ and _description_ to help organize images by project.
 
 Using multiple line, you can use :
 
@@ -177,39 +177,34 @@ FROM ubuntu:16.04
 ADD https://example.com/file.txt /home/user/
 ...
 ```
-Add compress file with extracted it.
-```
-FROM ubuntu:16.04
 
-...
-ADD https://example.com/compress.tar.gz /opt/
-...
-```
-
-## Docker Command
+### Useful Commands
 -------------
 
-| Command           | Description                               |
-| ---               | ---                                       |
-| *docker images*   | To list available image in local machine  |
-| *docker search image* | Search available the image on DockerHub repositories  |
-| *docker pull image* | Pull an image from a registry   |
-| *docker ps*       | Show all running containers               |
-| *docker build -t name:tag .*  | Build the image with spesific name and tag |
-| *docker commit <CONTAINER_ID> new_image*    | Create new images from an existing images or running images   |
-| *docker run image*      | Run the container image with any options like *-it* for interactive mode  |
-| *docker exec image*   | Run a command inside the running container    |
-| *docker logs image*   | To display the logs of the image  |
-| *docker stop <CONTAINER_ID>* | Stop one or more running containers |
-| *docker kill image*   | Kill one or more running containers   |
-| *docker pause image* | Pause all process on the spesific containers |
-| *docker unpause image* | Unpause all process on the spesific containers   |
-| *docker rm*   | Remove one or more images |
-| *docker stop $(docker ps -aq)*    | Stop all running containers   |
+| Command                                       | Description                               |
+| ---                                           | ---                                       |
+| *docker images*                               | To list available image in local machine  |
+| *docker search image*                         | Search available the image on DockerHub repositories  |
+| *docker pull image*                           | Pull an image from a registry             |
+| *docker ps*                                   | Show only running containers              |
+| *docker ps -a*                                | Show all container process including: running, stopped, exited, etc |
+| *docker build -t name:tag .*                  | Build the image with spesific name and tag |
+| *docker commit _CONTAINER_ID_ new_image*      | Create new images from an existing images or running images   |
+| *docker run -d -p host:container -it image*   | Run the container image with detach mode and binding listening port from container (80) to host (8080) |
+| *docker exec -it image _command_*             | Run a command inside the running container        |
+| *docker logs image*                           | To display the logs of the image                  |
+| *docker stop _CONTAINER_ID_*                  | Stop one or more running containers               |
+| *docker kill image*                           | Kill one or more running containers               |
+| *docker pause image*                          | Pause all process on the spesific containers       |
+| *docker unpause image*                        | Unpause all process on the spesific containers     |
+| *docker rm*                                   | Remove one or more images                         |
+| *docker stop $(docker ps -aq)*                | Stop all running containers                       |
+| *docker rmi _CONTAINER_ID_*                   | Delete spesific image with CONTAINER_ID            |
 | *docker rmi $(docker images --filter "dangling=true" -q --no-trunc) --force*  | Remove all untagged images |
-| *docker rm $(docker ps -aqf status=exited)*  | Remove an exited containers    |
-| *docker rm -f <CONTAINER_ID>* | Remove running container |
-| *docker rm $(docker ps -aq)*  | Remove all images |
+| *docker rm $(docker ps -aqf status=exited)*   | Remove all exited containers                      |
+| *docker rm -f _CONTAINER_ID_*                 | Remove running container                          |
+| *docker rm $(docker ps -aq)*                  | Remove all images                                 |
+| *docker system prune*                         | Remove all unused data including: image, network, stop container |
 
 
 ## Refrences
