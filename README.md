@@ -203,7 +203,7 @@ ADD https://example.com/file.txt /home/user/
 | *docker rmi $(docker images --filter "dangling=true" -q --no-trunc) --force*  | Remove all untagged images |
 | *docker rm $(docker ps -aqf status=exited)*   | Remove all exited containers                      |
 | *docker rm -f _CONTAINER_ID_*                 | Remove running container                          |
-| *docker rm $(docker ps -aq)*                  | Remove all images                                 |
+| *docker rmi -f $(docker images -a -q)*                  | Remove all images                                 |
 | *docker system prune*                         | Remove all unused data including: image, network, stop container |
 
 
